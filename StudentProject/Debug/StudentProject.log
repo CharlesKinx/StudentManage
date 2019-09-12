@@ -1,3 +1,16 @@
 ﻿  Main.cpp
-C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(22): warning C4326: “main”的返回类型应为“int”而非“void”
-  StudentProject.vcxproj -> C:\Users\Charles\Desktop\Student\StudentProject\Debug\StudentProject.exe
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(10): error C2027: 使用了未定义类型“student”
+  C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(6): note: 参见“student”的声明
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(19): error C3861: “full_student”: 找不到标识符
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(20): error C2065: “sut”: 未声明的标识符
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(20): error C2065: “size”: 未声明的标识符
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(21): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(37): error C2027: 使用了未定义类型“student”
+  C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(6): note: 参见“student”的声明
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(12): error C3646: “stu”: 未知重写说明符
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(12): error C2143: 语法错误: 缺少“,”(在“[”的前面)
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(12): error C2143: 语法错误: 缺少“)”(在“;”的前面)
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(12): error C2238: 意外的标记位于“;”之前
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(14): error C2371: “student”: 重定义；不同的基类型
+  C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\manage.h(6): note: 参见“student”的声明
+C:\Users\Charles\Desktop\Student\StudentProject\StudentProject\Main.cpp(25): warning C4326: “main”的返回类型应为“int”而非“void”
