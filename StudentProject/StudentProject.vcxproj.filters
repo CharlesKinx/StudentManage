@@ -23,5 +23,11 @@
     <ClInclude Include="manage.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="data.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
