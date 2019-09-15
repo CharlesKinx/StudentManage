@@ -4,16 +4,18 @@
 #define MAXLENGTH 20
 #define MAXSIZE 50
 
-inline void malloc_(student* stu) {
+inline void malloc_(student* stu,int index) {
 	
-	stu->stu[stu->size].name = (char*)malloc(sizeof(char));
-	stu->stu[stu->size].num = (char*)malloc(sizeof(char));
+	stu->stu[index].name = (char*)malloc(sizeof(char));
+	stu->stu[index].num = (char*)malloc(sizeof(char));
 }
-inline void free_(student* stu) {
 
-	//free(stu->stu[stu->size].name);
-	//free(stu->stu[stu->size].num);
-	free(stu);
+inline void free_(student* stu) {
+	for (int i = 0; i < stu->size; i++) {
+		free(stu->stu[i].name);
+		free(stu->stu[i].num);
+	}
+	return;
 }
 //初始化
 inline void init_student(student *stu){
@@ -57,7 +59,7 @@ inline void delete_student(student* stu, int stu_num) {
 		printf("删除无效！");
 		return;
 	}
-	for (int i = stu_num; i < stu->size; i++) {
+	for (int i = stu_num-1; i < stu->size; i++) {
 		stu->stu[i] = stu->stu[i + 1];
 	}
 	stu->size = stu->size - 1;
@@ -68,14 +70,13 @@ inline void delete_student(student* stu, int stu_num) {
 inline void add_student(student* stu,int where)
 {		
 	if (full_student(*stu)) {
-		printf("请输入添加成员的信息：\n");
-		malloc_(stu);
-		scanf_s("%d", &stu->stu[stu->size].stu_num);
-		scanf_s("%s", stu->stu[stu->size].name,20);
-		scanf_s("%d", &stu->stu[stu->size].age);
-		scanf_s("%d", &stu->stu[stu->size].sex);
-		scanf_s("%f", &stu->stu[stu->size].score);
-		scanf_s("%s", stu->stu[stu->size].num,20);
+		malloc_(stu,stu->size);
+		scanf_s("%d", &stu->stu[where].stu_num);
+		scanf_s("%s", stu->stu[where].name,20);
+		scanf_s("%d", &stu->stu[where].age);
+		scanf_s("%d", &stu->stu[where].sex);
+		scanf_s("%f", &stu->stu[where].score);
+		scanf_s("%s", stu->stu[where].num,20);
 		stu->size++;
 		return;
 	}
@@ -103,33 +104,36 @@ inline void find_student(student stu, int stu_num) {
 	printf("	 %s\n", stu.stu[stu_num - 1].num);
 	return;
 }
-/*//按照学号修改学生信息
+//按照学号修改学生信息
 inline void change_student(student* stu, int stu_num) {
 	if (stu_num > stu->size || stu_num < 0) {
 		printf("输入无效的学号！");
 			return;
 	}
-	printf("修改信息\n");
-	malloc_(stu);
-	scanf_s("%d", &stu->stu[stu_num-1].stu_num);
-	scanf_s("%s", stu->stu[stu_num-1].name, 20);
-	scanf_s("%d", &stu->stu[stu_num-1].age);
-	scanf_s("%d", &stu->stu[stu_num-1].sex);
-	scanf_s("%f", &stu->stu[stu_num-1].score);
-	scanf_s("%s", stu->stu[stu_num-1].num, 20);
-	find_student(*stu, stu_num);
+	malloc_(stu, stu_num - 1);
+	scanf_s("%d", &stu->stu[stu_num - 1].stu_num);
+	scanf_s("%s", stu->stu[stu_num - 1].name, 20);
+	scanf_s("%d", &stu->stu[stu_num - 1].age);
+	scanf_s("%d", &stu->stu[stu_num - 1].sex);
+	scanf_s("%f", &stu->stu[stu_num - 1].score);
+	scanf_s("%s", stu->stu[stu_num - 1].num, 20);
 	return;
-}*/
+}
 //插入
 inline void insert_student(student* stu, int where) {
 	if (full_student(* stu)) {
 		if (where >= 0 && where < stu->size) {
-			for (int i = stu->size - 1; i >= where; i--) {
+			for (int i = stu->size - 1; i >= where-1; i--) {
 				stu->stu[i + 1] = stu->stu[i];
 			}
-			add_student(stu,where);
-			stu->size++;
 		}
+		malloc_(stu, where - 1);
+		scanf_s("%d", &stu->stu[where-1].stu_num);
+		scanf_s("%s", stu->stu[where-1].name, 20);
+		scanf_s("%d", &stu->stu[where-1].age);
+		scanf_s("%d", &stu->stu[where-1].sex);
+		scanf_s("%f", &stu->stu[where-1].score);
+		scanf_s("%s", stu->stu[where-1].num, 20);
 		return;
 	}
 	else {

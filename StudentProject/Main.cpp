@@ -12,8 +12,11 @@ int main() {
 	init_student(stu);
 	inti_data(stu);
 	show_all(*stu);
-	//delete_student(stu, 5);
-	//show_all(*stu);
+	menu_function();
+	while (true) {
+		function(stu);
+	}
 	free_(stu);
+	free(stu);
 	return 0;
 }
